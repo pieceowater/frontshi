@@ -4,7 +4,9 @@
     <!-- Inner container for header and link section -->
     <div class="m-5 py-2 flex items-center justify-between">
       <!-- Title section -->
-      <h1 class="text-2xl font-bold">YA Playground</h1>
+      <a href=".">
+        <h1 class="text-2xl font-bold">YA Playground</h1>
+      </a>
 
       <!-- GitHub link container with padding and shadow for visual emphasis -->
       <div class="m-2 flex items-center px-3 py-1 rounded shadow-lg hover:shadow-none">
