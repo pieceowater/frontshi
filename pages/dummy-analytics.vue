@@ -1,11 +1,8 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-
+  <div class="m-5">
+    <BasicChart/>
+  </div>
 </template>
-
-<style scoped>
-
-</style>
+<script setup lang="ts">
+import BasicChart from "~/components/charts/BasicChart.vue";
+</script>
