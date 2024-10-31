@@ -1,5 +1,5 @@
 <template>
-  <div class="font-mono m-5">
+  <div class="font-mono">
     <NuxtLayout>
       <Header/>
       <NuxtPage/>
