@@ -26,7 +26,7 @@ const items: IContentCarouselItem[] = [
         <h2 class="text-2xl font-bold">{{ item.title }}</h2>
         <p v-if="item.description" class="text-sm">{{ item.description }}</p>
 
-        <a :href="item.destination">
+        <NuxtLink :to="item.destination">
           <UButton label="Open"
                    class="mt-7 bg-emerald-100 text-emerald-800 font-bold shadow-xl cursor-alias hover:shadow-none hover:text-emerald-600"
                    color="gray">
@@ -34,7 +34,7 @@ const items: IContentCarouselItem[] = [
               <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5"/>
             </template>
           </UButton>
-        </a>
+        </NuxtLink>
       </div>
     </UCarousel>
   </div>
