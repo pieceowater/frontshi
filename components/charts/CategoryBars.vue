@@ -35,11 +35,11 @@ onMounted(() => {
       },
       yAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        data: ['26/10/24', '27/10/24', '28/10/24', '29/10/24', '30/10/24', '31/10/24', '1/11/24'],
       },
       series: [
         {
-          name: 'Direct',
+          name: 'Новый',
           type: 'bar',
           stack: 'total',
           label: {
@@ -51,7 +51,7 @@ onMounted(() => {
           data: [320, 302, 301, 334, 390, 330, 320],
         },
         {
-          name: 'Mail Ad',
+          name: 'Черновик',
           type: 'bar',
           stack: 'total',
           label: {
@@ -63,7 +63,7 @@ onMounted(() => {
           data: [120, 132, 101, 134, 90, 230, 210],
         },
         {
-          name: 'Affiliate Ad',
+          name: 'В работе',
           type: 'bar',
           stack: 'total',
           label: {
@@ -75,7 +75,7 @@ onMounted(() => {
           data: [220, 182, 191, 234, 290, 330, 310],
         },
         {
-          name: 'Video Ad',
+          name: 'Отклонено',
           type: 'bar',
           stack: 'total',
           label: {
@@ -87,7 +87,7 @@ onMounted(() => {
           data: [150, 212, 201, 154, 190, 330, 410],
         },
         {
-          name: 'Search Engine',
+          name: 'Завершено',
           type: 'bar',
           stack: 'total',
           label: {

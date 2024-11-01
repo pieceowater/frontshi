@@ -16,23 +16,23 @@ onMounted(() => {
     chartInstance = echarts.init(chart.value)
 
     // Define chart options
-    const options: echarts.EChartOption = {
+    const options: echarts.EChartsOption = {
       title: {
-        text: 'Sample ECharts Graph',
+        text: 'Общее Количество Заказов',
       },
       tooltip: {},
       xAxis: {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        data: ['Пон', 'Вт', 'Ср', 'Чет', 'Пят', 'Суб', 'Вос']
       },
       yAxis: {
         type: 'value'
       },
       series: [
         {
-          name: 'Sales',
+          name: 'Заказов Всего',
           type: 'bar',
-          data: [5, 20, 36, 10, 10, 20, 30]
+          data: [150, 220, 236, 260, 270, 274, 300]
         }
       ]
     }
