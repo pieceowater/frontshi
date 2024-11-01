@@ -1,6 +1,10 @@
 <template>
-  <!-- Basic container for ECharts with dynamic resizing -->
-  <div ref="chart" class="w-full h-64"></div>
+  <div class="mb-5 p-5">
+    <h1 class="text-xl font-bold">Количество заказов по статусам</h1>
+    <!-- Basic container for ECharts with dynamic resizing -->
+    <div ref="chart" class="w-full h-64"></div>
+    <hr>
+  </div>
 </template>
 
 <script setup lang="ts">
