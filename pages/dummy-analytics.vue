@@ -13,7 +13,7 @@
         Auth / Submit
       </button>
     </div>
-    
+
     <BasicChart :data="chartData"/>
     <DonutChart :data="donutChartData"/>
 
@@ -42,7 +42,7 @@ const fetchData = async () => {
   if (!authToken.value) return;
 
   try {
-    const response = await fetch('http://localhost:3100/apiv2/analytics/data', {
+    const response = await fetch('https://api-dev3.telecom.bca.kz/apiv2/analytics/data', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
