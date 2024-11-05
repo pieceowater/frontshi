@@ -1,69 +1,73 @@
 <template>
   <div class="mb-5 p-5">
-    <!-- Basic container for ECharts with dynamic resizing -->
     <div ref="chart" class="w-full h-64"></div>
     <hr>
   </div>
 </template>
 
 <script setup lang="ts">
-import {onBeforeUnmount, onMounted, ref} from 'vue'
-import * as echarts from 'echarts'
+import {onBeforeUnmount, onMounted, ref, watch} from 'vue';
+import * as echarts from 'echarts';
 
-const chart = ref<HTMLElement | null>(null)
-let chartInstance: echarts.ECharts | null = null
+const props = defineProps<{ data: { count: number, day: string }[] }>();
+
+const chart = ref<HTMLElement | null>(null);
+let chartInstance: echarts.ECharts | null = null;
 
 onMounted(() => {
   if (chart.value) {
-    // Initialize the chart
-    chartInstance = echarts.init(chart.value)
-
-    // Define chart options
-    const options: echarts.EChartsOption = {
-      title: {
-        text: 'Общее Количество Заказов',
-      },
-      tooltip: {},
-      xAxis: {
-        type: 'category',
-        data: ['Пон', 'Вт', 'Ср', 'Чет', 'Пят', 'Суб', 'Вос']
-      },
-      yAxis: {
-        type: 'value'
-      },
-      series: [
-        {
-          name: 'Заказов Всего',
-          type: 'bar',
-          data: [150, 220, 236, 260, 270, 274, 300]
-        }
-      ]
-    }
-
-    // Set the options
-    chartInstance.setOption(options)
-
-    // Handle resizing
-    window.addEventListener('resize', resizeChart)
+    chartInstance = echarts.init(chart.value);
+    updateChart();
+    window.addEventListener('resize', resizeChart);
   }
-})
+});
 
-// Cleanup on unmount
+watch(() => props.data, updateChart, {deep: true});
+
+function updateChart() {
+  if (!chartInstance || !chart.value || !props.data) return;
+
+  const days = props.data.map(item => item.day);
+  const counts = props.data.map(item => item.count);
+
+  const options: echarts.EChartsOption = {
+    title: {
+      text: 'Вертикальные палки',
+    },
+    tooltip: {},
+    xAxis: {
+      type: 'category',
+      data: days,
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        name: 'Заказов Всего',
+        type: 'bar',
+        data: counts,
+      },
+    ],
+  };
+
+  chartInstance.clear();
+  chartInstance.setOption(options);
+}
+
 onBeforeUnmount(() => {
   if (chartInstance) {
-    window.removeEventListener('resize', resizeChart)
-    chartInstance.dispose()
+    window.removeEventListener('resize', resizeChart);
+    chartInstance.dispose();
   }
-})
+});
 
-// Function to resize chart on window resize
 function resizeChart() {
-  if (chartInstance) chartInstance.resize()
+  if (chartInstance) chartInstance.resize();
 }
 </script>
 
 <style scoped>
-/* Ensure the chart container has a defined size */
 .chart {
   width: 100%;
   height: 100%;
